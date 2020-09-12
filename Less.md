@@ -60,7 +60,7 @@ LESS is an open-source. The first version of LESS was written in Ruby; in the la
 
 ### basic demo
 
-hello.html
+**hello.html**
 
 ```html
 <!doctype html>
@@ -75,7 +75,7 @@ hello.html
 </html>
 ```
 
-style.less
+**style.less**
 
 ```less
 @primarycolor: #FF7F50;
@@ -89,3 +89,31 @@ h3 {
 }
 ```
 
+Compile **style.less** file to **style.css** by using the following command −
+
+```
+lessc style.less style.css
+```
+
+When you run the above command, it will create the *style.css* file automatically. 
+
+Whenever you change the LESS file, it's necessary to run the above command in the **cmd** and then the *style.css* file will get updated.
+
+**style.css**
+
+```css
+h1 {
+  color: #FF7F50;
+}
+
+h3 {
+  color: #800080;
+}
+```
+
+**Output**
+
+Let us now carry out the following steps to see how the above code works −
+
+- Save code `index.html`, `style.less`, and generate `style.css`.
+- Open this HTML file in a browser, the following output will get displayed.
