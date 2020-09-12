@@ -1,6 +1,6 @@
 # Less Basic Tutorial
 
-##  Home
+##  Less - Home
 
 LESS is a CSS pre-processor that enables customizable, manageable and reusable style sheet for website.
 
@@ -49,3 +49,43 @@ LESS is an open-source. The first version of LESS was written in Ruby; in the la
 - It takes time to learn if you are new to CSS preprocessing.
 - Due to the tight coupling between the modules, more efforts should be taken to reuse and/or test dependent modules.
 - LESS has less framework compared to older preprocessor like SASS, which consists of frameworks *Compass*, *Gravity* and *Susy*.
+
+## Less - Installation
+
+### Installation steps
+
+1. install **NodeJs** 
+2. Install **LESS** using npm :`npm install -g less`
+3. `lessc -v`
+
+### basic demo
+
+hello.html
+
+```html
+<!doctype html>
+   <head>
+      <link rel = "stylesheet" href = "style.css" type = "text/css" />
+   </head>
+   
+   <body>
+      <h1>Welcome to TutorialsPoint</h1>
+      <h3>Hello!!!!!</h3>
+   </body>
+</html>
+```
+
+style.less
+
+```less
+@primarycolor: #FF7F50;
+@color:#800080;
+h1 {
+   color: @primarycolor;
+}
+
+h3 {
+   color: @color;
+}
+```
+
