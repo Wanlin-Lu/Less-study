@@ -188,3 +188,75 @@ lessc style.less style.css
 
 check the output of index.html in browser.
 
+
+
+## LESS - Nested Directives and Bubbling
+
+### Description
+
+You can nest the directives such as **media** and **keyframe** in the same manner, the way you nest the selectors. 
+
+You can place the directive on top and its relative elements will not be changed inside its rule set. This is known as the bubbling process.
+
+### Example
+
+index.html
+
+```html
+<html>
+   <head>
+      <title>Nested Directives</title>
+      <link rel = "stylesheet" type = "text/css" href = "style.css" />
+   </head>
+   
+   <body>
+      <h1>Example using Nested Directives</h1>
+      <p class = "myclass">LESS enables customizable, 
+      manageable and reusable style sheet for web site.</p>
+   </body>
+</html>
+```
+
+style.less
+
+```less
+.myclass {
+   @media screen {
+      color: blue;
+      @media (min-width: 1024px) {
+         color: green;
+      }
+   }
+   @media mytext {
+      color: black;
+   }
+}
+```
+
+compile the *style.less* file to *style.css*
+
+```
+lessc style.less style.css
+```
+
+style.css
+
+```css
+@media screen {
+   .myclass {
+      color: blue;
+   }
+}
+@media screen and (min-width: 1024px) {
+   .myclass {
+      color: green;
+   }
+}
+@media mytext {
+   .myclass {
+      color: black;
+   }
+}
+```
+
+check the output of index.html in browser.
