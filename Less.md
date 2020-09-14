@@ -549,3 +549,71 @@ style.css
 ```
 
 check the output of index.html in browser.
+
+
+
+## LESS - Comments
+
+### Description
+
+Comments make the code clear and understandable for the users. 
+
+You can use both the block style and the inline comments in the code, but when you compile the LESS code, the single line comments will not appear in the CSS file.
+
+### Example
+
+index.html
+
+```html
+<html>
+   <head>
+      <title>Less Comments</title>
+      <link rel = "stylesheet" type = "text/css" href = "style.css" />
+   </head>
+
+   <body>
+      <h1>Example using Comments</h1>
+      <p class = "myclass">LESS enables customizable, 
+      manageable and reusable style sheet for web site.</p>
+      <p class = "myclass1">It allows reusing CSS code and 
+      writing LESS code with same semantics.</p>
+   </body>
+</html>
+```
+
+style.less
+
+```less
+/* It displays the
+green color! */
+.myclass {
+   color: green;
+}
+
+// It displays the blue color
+.myclass1 {
+   color: red;
+}
+```
+
+compile the *style.less* file to *style.css*
+
+```
+lessc style.less style.css
+```
+
+style.css
+
+```css
+/* It displays the
+green color! */
+.myclass {
+   color: green;
+}
+
+.myclass1 {
+   color: red;
+}
+```
+
+check the output of index.html in browser.
