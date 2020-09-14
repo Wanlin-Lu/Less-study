@@ -370,3 +370,62 @@ Anything written inside ***~"some_text"*** will be displayed as *some_text* afte
 
 
 check the output of index.html in browser.
+
+
+
+## LESS - Functions
+
+### Description
+
+LESS maps JavaScript code with manipulation of values and uses predefined functions to manipulate HTML elements aspects in the style sheet.
+
+ It provides several functions to manipulate colors such as round function, floor function, ceil function, percentage function etc.
+
+### Example
+
+index.html
+
+```html
+<html>
+   <head>
+      <title>Less Functions</title>
+      <link rel = "stylesheet" type = "text/css" href = "style.css" />
+   </head>
+   
+   <body>
+      <h1>Example using Functions</h1>
+      <p class = "mycolor">LESS enables customizable, 
+      manageable and reusable style sheet for web site.</p>
+   </body>
+</html>
+```
+
+style.less
+
+```less
+@color: #FF8000;
+@width:1.0;
+.mycolor {
+   color: @color;
+   width: percentage(@width);
+}
+```
+
+compile the *style.less* file to *style.css*
+
+```
+lessc style.less style.css
+```
+
+style.css
+
+```css
+.mycolor {
+   color: #FF8000;
+   width: 100%;
+}
+```
+
+
+
+check the output of index.html in browser.
