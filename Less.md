@@ -489,6 +489,63 @@ style.css
 }
 ```
 
+check the output of index.html in browser.
 
+
+
+## LESS - Scope
+
+### Description
+
+Variable scope specifies the place of the available variable.
+
+ The variables will be searched from the local scope and if they are not available, then compiler will search from the parent scope.
+
+### Example
+
+index.html
+
+```html
+<html>
+   <head>
+      <title>Less Scope</title>
+      <link rel = "stylesheet" type = "text/css" href = "style.css" />
+   </head>
+   
+   <body>
+      <h1>Example using Scope</h1>
+      <p class = "myclass">LESS enables customizable, 
+      manageable and reusable style sheet for web site.</p>
+   </body>
+</html>
+```
+
+style.less
+
+```less
+@var: @a;
+@a: 15px;
+
+.myclass {
+   font-size: @var;
+   @a:20px;
+   color: green;
+}
+```
+
+compile the *style.less* file to *style.css*
+
+```
+lessc style.less style.css
+```
+
+style.css
+
+```css
+.myclass {
+   font-size: 20px;
+   color: green;
+}
+```
 
 check the output of index.html in browser.
