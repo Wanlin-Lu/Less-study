@@ -120,9 +120,9 @@ Let us now carry out the following steps to see how the above code works −
 
 # Language Feature
 
-## Less - Nested Rules
+## LESS - Nested Rules
 
-### Description
+**Description**
 
 It is a group of CSS properties which allows using properties of one class into another class and includes the class name as its properties. 
 
@@ -130,7 +130,7 @@ In LESS, you can declare **mixin** in the same way as CSS style using class or i
 
 It can store multiple values and can be reused in the code whenever necessary.
 
-### Example
+**Example**
 
 index.html
 
@@ -192,13 +192,13 @@ check the output of index.html in browser.
 
 ## LESS - Nested Directives and Bubbling
 
-### Description
+**Description**
 
 You can nest the directives such as **media** and **keyframe** in the same manner, the way you nest the selectors. 
 
 You can place the directive on top and its relative elements will not be changed inside its rule set. This is known as the bubbling process.
 
-### Example
+**Example**
 
 index.html
 
@@ -265,13 +265,13 @@ check the output of index.html in browser.
 
 ## LESS - Operations
 
-### Description
+**Description**
 
 LESS provides support for some arithmetical operations such as plus (+), minus (-), multiplication (*) and division (/) and they can operate on any number, color or variable. 
 
 Operations save lot of time when you are using variables and you feel like working on simple mathematics.
 
-### Example
+**Example**
 
 index.html
 
@@ -321,11 +321,11 @@ check the output of index.html in browser.
 
 ## LESS - Escaping
 
-### Description
+**Description**
 
 It builds selectors dynamically and uses property or variable value as arbitrary string.
 
-### Example
+**Example**
 
 index.html
 
@@ -375,13 +375,13 @@ check the output of index.html in browser.
 
 ## LESS - Functions
 
-### Description
+**Description**
 
 LESS maps JavaScript code with manipulation of values and uses predefined functions to manipulate HTML elements aspects in the style sheet.
 
  It provides several functions to manipulate colors such as round function, floor function, ceil function, percentage function etc.
 
-### Example
+**Example**
 
 index.html
 
@@ -432,13 +432,13 @@ check the output of index.html in browser.
 
 ## LESS - Namespaces and Accessors
 
-### Description
+**Description**
 
 Namespaces are used to group the mixins under a common name.
 
 Using namespaces, you can avoid conflict in name and encapsulate a group of mixins from outside.
 
-### Example
+**Example**
 
 index.html
 
@@ -495,13 +495,13 @@ check the output of index.html in browser.
 
 ## LESS - Scope
 
-### Description
+**Description**
 
 Variable scope specifies the place of the available variable.
 
  The variables will be searched from the local scope and if they are not available, then compiler will search from the parent scope.
 
-### Example
+**Example**
 
 index.html
 
@@ -554,13 +554,13 @@ check the output of index.html in browser.
 
 ## LESS - Comments
 
-### Description
+**Description**
 
 Comments make the code clear and understandable for the users. 
 
 You can use both the block style and the inline comments in the code, but when you compile the LESS code, the single line comments will not appear in the CSS file.
 
-### Example
+**Example**
 
 index.html
 
