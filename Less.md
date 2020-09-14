@@ -260,3 +260,59 @@ style.css
 ```
 
 check the output of index.html in browser.
+
+
+
+## LESS - Operations
+
+### Description
+
+LESS provides support for some arithmetical operations such as plus (+), minus (-), multiplication (*) and division (/) and they can operate on any number, color or variable. 
+
+Operations save lot of time when you are using variables and you feel like working on simple mathematics.
+
+### Example
+
+index.html
+
+```html
+<html>
+   <head>
+      <title>Less Operations</title>
+      <link rel = "stylesheet" type = "text/css" href = "style.css" />
+   </head>
+   
+   <body>
+      <h1>Example using Operations</h1>
+      <p class = "myclass">LESS enables customizable, 
+      manageable and reusable style sheet for web site.</p>
+   </body>
+</html>
+```
+
+style.less
+
+```less
+@fontSize: 10px;
+.myclass {
+   font-size: @fontSize * 2;
+   color:green;
+}
+```
+
+compile the *style.less* file to *style.css*
+
+```
+lessc style.less style.css
+```
+
+style.css
+
+```css
+.myclass {
+   font-size: 20px;
+   color: green;
+}
+```
+
+check the output of index.html in browser.
