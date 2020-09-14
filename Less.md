@@ -121,3 +121,70 @@ Let us now carry out the following steps to see how the above code works −
 # Language Feature
 
 ## Less - Nested Rules
+
+### Description
+
+It is a group of CSS properties which allows using properties of one class into another class and includes the class name as its properties. 
+
+In LESS, you can declare **mixin** in the same way as CSS style using class or id selector. 
+
+It can store multiple values and can be reused in the code whenever necessary.
+
+### Example
+
+index.html
+
+```html
+<html>
+   <head>
+      <title>Nested Rules</title>
+      <link rel = "stylesheet" type = "text/css" href = "style.css" />
+   </head>
+   
+   <body>
+      <div class = "container">
+         <h1>First Heading</h1>
+         <p>LESS is a dynamic style sheet language that extends the capability of CSS.</p>
+         <div class = "myclass">
+            <h1>Second Heading</h1>
+            <p>LESS enables customizable, manageable and reusable style sheet for web site.</p>
+         </div>
+      </div>
+   </body>
+</html>
+```
+
+style.less
+
+```less
+.container {
+   h1 {
+      font-size: 25px;
+      color:#E45456;
+   }
+   p {
+      font-size: 25px;
+      color:#3C7949;
+   }
+
+   .myclass {
+      h1 {
+         font-size: 25px;
+         color:#E45456;
+      }
+      p {
+         font-size: 25px;
+         color:#3C7949;
+      }
+   }
+}
+```
+
+compile the *style.less* file to *style.css*
+
+```
+lessc style.less style.css
+```
+
+check the output of index.html in browser.
+
