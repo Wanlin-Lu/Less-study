@@ -426,6 +426,69 @@ style.css
 }
 ```
 
+check the output of index.html in browser.
+
+
+
+## LESS - Namespaces and Accessors
+
+### Description
+
+Namespaces are used to group the mixins under a common name.
+
+Using namespaces, you can avoid conflict in name and encapsulate a group of mixins from outside.
+
+### Example
+
+index.html
+
+```html
+<html>
+   <head>
+      <title>Less Namespaces and Accessors</title>
+      <link rel = "stylesheet" type = "text/css" href = "style.css" />
+   </head>
+   
+   <body>
+      <h1>Example using Namespaces and Accessors</h1>
+      <p class = "myclass">LESS enables customizable, 
+      manageable and reusable style sheet for web site.</p>
+   </body>
+</html>
+```
+
+style.less
+
+```less
+.class1 {
+   .class2 {
+      .val(@param) {
+         font-size: @param;
+         color:green;
+      }
+   }
+}
+
+.myclass {
+   .class1 > .class2 > .val(20px);
+}
+```
+
+compile the *style.less* file to *style.css*
+
+```
+lessc style.less style.css
+```
+
+style.css
+
+```css
+.myclass {
+   font-size: 20px;
+   color: green;
+}
+```
+
 
 
 check the output of index.html in browser.
