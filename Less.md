@@ -316,3 +316,57 @@ style.css
 ```
 
 check the output of index.html in browser.
+
+
+
+## LESS - Escaping
+
+### Description
+
+It builds selectors dynamically and uses property or variable value as arbitrary string.
+
+### Example
+
+index.html
+
+```html
+<html>
+   <head>
+      <title>Less Escaping</title>
+      <link rel = "stylesheet" type = "text/css" href = "style.css" />
+   </head>
+   
+   <body>
+      <h1>Example using Escaping</h1>
+      <p>LESS enables customizable, manageable and reusable style sheet for web site.</p>
+   </body>
+</html>
+```
+
+style.less
+
+```less
+p {
+   color: ~"green";
+}
+```
+
+compile the *style.less* file to *style.css*
+
+```
+lessc style.less style.css
+```
+
+style.css
+
+```css
+p {
+   color: green;
+}
+```
+
+Anything written inside ***~"some_text"*** will be displayed as *some_text* after compiling the LESS code to CSS code.
+
+
+
+check the output of index.html in browser.
