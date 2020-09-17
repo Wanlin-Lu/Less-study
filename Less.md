@@ -649,7 +649,7 @@ index.html
 </html>
 ```
 
-myfile.less
+file/myfile.less
 
 ```
 .myclass {
@@ -664,9 +664,11 @@ myfile.less
 style.less
 
 ```less
-@import "http://www.tutorialspoint.com/less/myfile.less";
+// @import "file/myfile.less";
+@import url('file/myfile.less');
+
 .myclass2 {
-   color: #FF0000;
+  color: #FF0000;
 }
 ```
 
@@ -700,7 +702,7 @@ check the output of index.html in browser.
 
 In this chapter, we will discuss the Variables in LESS.
 
- LESS allows *variables* to be defined with an @ symbol. 
+ LESS allows *variables* to be defined with an `@` symbol. 
 
 The *Variable* assignment is done with a **colon(:)**.
 
@@ -1090,7 +1092,7 @@ check the output of index.html in browser.
 
 
 
-### Lazy Loading
+### Variable Lazy Loading
 
 **Description**
 
@@ -1146,7 +1148,7 @@ check the output of index.html in browser.
 
 
 
-### Default Variables
+### Variable Default Variables
 
 **Description**
 
