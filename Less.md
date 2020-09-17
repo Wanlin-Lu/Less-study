@@ -1035,7 +1035,60 @@ check the output of index.html in browser.
 
 ### Variable Names
 
-We can define variables with a variable name consisting of a value.
+**Description**
+
+We can define the variables with a variable name consisting of a value.
+
+**Example**
+
+index.html
+
+```html
+<html>
+   <head>
+      <link rel = "stylesheet" href = "style.css" type = "text/css" />
+      <title>LESS Variable Names</title>
+   </head>
+
+   <body>
+      <div class = "myclass">
+         <h2>Welcome to Tutorialspoint</h2>
+         <p>LESS is a CSS pre-processor that enables customizable, 
+         manageable and reusable style sheet for web site.</p>
+      </div>
+   </body>
+</html>
+```
+
+style.less
+
+```less
+.myclass {
+   @col: #ca428b;
+   @color: "col";
+   background-color: @@color;
+}
+```
+
+compile the *style.less* file to *style.css*
+
+```
+lessc style.less style.css
+```
+
+The following code will import the *external.less* file into *style.less* from the https://www.tutorialspoint.com/less/external1.less path −
+
+style.css
+
+```css
+myclass {
+   background-color: #ca428b;
+}
+```
+
+check the output of index.html in browser.
+
+
 
 ### Lazy Loading
 
