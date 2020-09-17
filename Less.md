@@ -617,3 +617,81 @@ green color! */
 ```
 
 check the output of index.html in browser.
+
+
+
+## LESS - Importing
+
+**Description**
+
+It is used to import the contents of the LESS or CSS files.
+
+**Example**
+
+index.html
+
+```html
+<html>
+   <head>
+      <title>Less Importing</title>
+      <link rel = "stylesheet" type = "text/css" href = "style.css" />
+   </head>
+
+   <body>
+      <h1>Example using Importing</h1>
+      <p class = "myclass">LESS enables customizable, 
+      manageable and reusable style sheet for web site.</p>
+      <p class = "myclass1">It allows reusing CSS code and 
+      writing LESS code with same semantics.</p>
+      <p class = "myclass2">LESS supports creating cleaner, 
+      cross-browser friendly CSS faster and easier.</p>
+   </body>
+</html>
+```
+
+myfile.less
+
+```
+.myclass {
+   color: #FF8000;
+}
+
+.myclass1 {
+   color: #5882FA;
+}
+```
+
+style.less
+
+```less
+@import "http://www.tutorialspoint.com/less/myfile.less";
+.myclass2 {
+   color: #FF0000;
+}
+```
+
+compile the *style.less* file to *style.css*
+
+```
+lessc style.less style.css
+```
+
+The *myfile.less* file which will be imported into *style.less* from the path `https://www.tutorialspoint.com/less/myfile.less`
+
+style.css
+
+```css
+.myclass {
+   color: #FF8000;
+}
+
+.myclass1 {
+   color: #5882FA;
+}
+
+.myclass2 {
+   color: #FF0000;
+}
+```
+
+check the output of index.html in browser.
