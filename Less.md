@@ -853,11 +853,65 @@ check the output of index.html in browser.
 
 #### URLs
 
-The variables can be used to hold URLs.
+**Description**
+
+The variables can be used to hold the URLs.
+
+**Example**
+
+index.html
+
+```html
+<html>
+   <head>
+      <link rel = "stylesheet" href = "style.css" type = "text/css" />
+      <title>LESS URLs</title>
+   </head>
+
+   <body>
+      <div class = "myclass">
+      </div>
+   </body>
+</html>
+```
+
+style.less
+
+```less
+@images: "http://www.tutorialspoint.com";
+
+.myclass {
+   background : url("@{images}/less/images/less_variables/birds.jpg");
+   width:800px;
+   height:500px;
+}
+```
+
+compile the *style.less* file to *style.css*
+
+```
+lessc style.less style.css
+```
+
+style.css
+
+```css
+.myclass {
+   background: url("http://www.tutorialspoint.com/less/images/less_variables/birds.jpg");
+   width: 800px;
+   height: 500px;
+}
+```
+
+check the output of index.html in browser.
+
+
 
 #### Import Statements
 
-An import statement can have a variable which holds a path.
+
+
+
 
 #### Properties
 
