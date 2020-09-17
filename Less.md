@@ -1092,7 +1092,59 @@ check the output of index.html in browser.
 
 ### Lazy Loading
 
-lazy loading, variables can be used even when they are not. 
+**Description**
+
+In lazy loading, variables can be used even when they are not declared.
+
+**Example**
+
+index.html
+
+```html
+<html>
+   <head>
+      <link rel = "stylesheet" href = "style.css" type = "text/css" />
+      <title>LESS Lazy Loading</title>
+   </head>
+
+   <body>
+      <h2>Welcome to Tutorialspoint</h2>
+      <p>LESS is a CSS pre-processor.</p>
+   </body>
+</html>
+```
+
+style.less
+
+```less
+p {
+   font-size: @a;
+   color: #ca428b;
+}
+@a: @b;
+@b: 25px;
+```
+
+compile the *style.less* file to *style.css*
+
+```
+lessc style.less style.css
+```
+
+The following code will import the *external.less* file into *style.less* from the https://www.tutorialspoint.com/less/external1.less path −
+
+style.css
+
+```css
+p {
+   font-size: 25px;
+   color: #ca428b;
+}
+```
+
+check the output of index.html in browser.
+
+
 
 ### Default Variables
 
