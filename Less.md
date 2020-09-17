@@ -696,7 +696,7 @@ style.css
 
 check the output of index.html in browser.
 
-## LESS-Variables*
+## LESS-Variables-*
 
 In this chapter, we will discuss the Variables in LESS.
 
@@ -1148,9 +1148,58 @@ check the output of index.html in browser.
 
 ### Default Variables
 
-Default variable has an ability to set a variable only when it is not already set. 
+**Description**
+
+Default variable has an ability to set a variable only when it's not already set. 
 
 This feature is not required because variables can be easily overridden by defining them afterwards.
+
+**Example**
+
+index.html
+
+```html
+<html>
+   <head>
+      <link rel = "stylesheet" href = "style.css" type = "text/css" />
+      <title>LESS Default Variables</title>
+   </head>
+
+   <body>
+      <h1>Welcome to Tutorialspoint</h1>
+      <p>LESS is a CSS pre-processor that enables customizable, 
+      manageable and reusable style sheet for web site.</p>
+   </body>
+</html>
+```
+
+style.less
+
+```less
+@import "http://www.tutorialspoint.com/less/lib.less"; // first declaration of @color
+@color: green; // this will override @color defined previously
+p {
+   color : @color;
+}
+```
+
+compile the *style.less* file to *style.css*
+
+```
+lessc style.less style.css
+```
+
+The following code will import the *external.less* file into *style.less* from the https://www.tutorialspoint.com/less/external1.less path −
+
+style.css
+
+```css
+p {
+   color: green;
+}
+```
+
+check the output of index.html in browser.
 
 
 
