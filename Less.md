@@ -695,3 +695,187 @@ style.css
 ```
 
 check the output of index.html in browser.
+
+## LESS-Variables*
+
+In this chapter, we will discuss the Variables in LESS.
+
+ LESS allows *variables* to be defined with an @ symbol. 
+
+The *Variable* assignment is done with a **colon(:)**.
+
+### Variable Overview
+
+**Description**
+
+Repetition of the same value many times is usually seen across your stylesheet. 
+
+Instead of using the same value multiple times, *variables* can be used. 
+
+It makes maintenance of code easier and those values can be controlled from single location.
+
+**Example**
+
+index.html
+
+```html
+<html>
+   <head>
+     <link rel = "stylesheet" href = "style.css" type = "text/css" />
+     <title>LESS variables overview</title>
+   </head>
+
+   <body>
+      <h1>Welcome to Tutorialspoint</h1>
+      <div class = "div1">
+         <p>LESS is a CSS pre-processor that enables customizable, 
+            manageable and reusable style sheet for web site.</p>
+      </div>
+         
+      <div class = "div2">
+         <p>LESS is a dynamic style sheet language that extends the capability of CSS. 
+            LESS is also cross browser friendly.</p>
+      </div>
+   </body>
+</html>
+```
+
+style.less
+
+```less
+@color1: #ca428b;
+.div1 {
+   background-color : @color1;
+}
+
+.div2 {
+   background-color : @color1;
+}
+```
+
+compile the *style.less* file to *style.css*
+
+```
+lessc style.less style.css
+```
+
+style.css
+
+```css
+h1 {
+   color: #D0DC11;
+}
+
+.div1 {
+   background-color: #ca428b;
+   color: #D0DC11;
+}
+
+.div2 {
+   background-color: #ca428b;
+   color: #D0DC11;
+}
+```
+
+check the output of index.html in browser.
+
+### Variable interpolation
+
+**Description**
+
+The variable interpolation is the process of evaluating an expression or literal containing one or more variables, yielding output in which the variables are replaced with their corresponding values. 
+
+The variables can also be used in other places like *selector names*, *property names*, *URL*s and *@import* statements.
+
+#### Selectors
+
+**Description**
+
+The selector can reference any variable and it is built during the compile time. 
+
+The variable name must be placed inside the curly braces( **{ }** ) prefixed with the **@** symbol.
+
+**Example**
+
+index.html
+
+```html
+<html>
+   <head>
+      <link rel = "stylesheet" href = "style.css" type = "text/css" />
+      <title>LESS selectors</title>
+   </head>
+	
+   <body>
+      <h2>Welcome to Tutorialspoint</h2>
+         
+      <div class = "div1">
+         <p>LESS is a CSS pre-processor that enables customizable, 
+            manageable and reusable style sheet for web site.</p>
+      </div>
+      
+      <div class = "div2">
+         <p>LESS is a dynamic style sheet language that extends the capability of CSS. 
+            LESS is also cross browser friendly.</p>
+      </div>
+   </body>
+	
+</html>
+```
+
+style.less
+
+```less
+@selector: h2;
+
+@{selector} {
+   background: #2ECCFA;
+}
+```
+
+compile the *style.less* file to *style.css*
+
+```
+lessc style.less style.css
+```
+
+style.css
+
+```css
+h2 {
+   background: #2ECCFA;
+}
+```
+
+check the output of index.html in browser.
+
+
+
+#### URLs
+
+The variables can be used to hold URLs.
+
+#### Import Statements
+
+An import statement can have a variable which holds a path.
+
+#### Properties
+
+The variables can be referenced by properties.
+
+### Variable Names
+
+We can define variables with a variable name consisting of a value.
+
+### Lazy Loading
+
+lazy loading, variables can be used even when they are not. 
+
+### Default Variables
+
+Default variable has an ability to set a variable only when it is not already set. 
+
+This feature is not required because variables can be easily overridden by defining them afterwards.
+
+
+
