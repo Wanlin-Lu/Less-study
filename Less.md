@@ -617,3 +617,589 @@ green color! */
 ```
 
 check the output of index.html in browser.
+
+
+
+## LESS - Importing
+
+**Description**
+
+It is used to import the contents of the LESS or CSS files.
+
+**Example**
+
+index.html
+
+```html
+<html>
+   <head>
+      <title>Less Importing</title>
+      <link rel = "stylesheet" type = "text/css" href = "style.css" />
+   </head>
+
+   <body>
+      <h1>Example using Importing</h1>
+      <p class = "myclass">LESS enables customizable, 
+      manageable and reusable style sheet for web site.</p>
+      <p class = "myclass1">It allows reusing CSS code and 
+      writing LESS code with same semantics.</p>
+      <p class = "myclass2">LESS supports creating cleaner, 
+      cross-browser friendly CSS faster and easier.</p>
+   </body>
+</html>
+```
+
+myfile.less
+
+```
+.myclass {
+   color: #FF8000;
+}
+
+.myclass1 {
+   color: #5882FA;
+}
+```
+
+style.less
+
+```less
+@import "http://www.tutorialspoint.com/less/myfile.less";
+.myclass2 {
+   color: #FF0000;
+}
+```
+
+compile the *style.less* file to *style.css*
+
+```
+lessc style.less style.css
+```
+
+The *myfile.less* file which will be imported into *style.less* from the path `https://www.tutorialspoint.com/less/myfile.less`
+
+style.css
+
+```css
+.myclass {
+   color: #FF8000;
+}
+
+.myclass1 {
+   color: #5882FA;
+}
+
+.myclass2 {
+   color: #FF0000;
+}
+```
+
+check the output of index.html in browser.
+
+## LESS-Variables-*
+
+In this chapter, we will discuss the Variables in LESS.
+
+ LESS allows *variables* to be defined with an @ symbol. 
+
+The *Variable* assignment is done with a **colon(:)**.
+
+### Variable Overview
+
+**Description**
+
+Repetition of the same value many times is usually seen across your stylesheet. 
+
+Instead of using the same value multiple times, *variables* can be used. 
+
+It makes maintenance of code easier and those values can be controlled from single location.
+
+**Example**
+
+index.html
+
+```html
+<html>
+   <head>
+     <link rel = "stylesheet" href = "style.css" type = "text/css" />
+     <title>LESS variables overview</title>
+   </head>
+
+   <body>
+      <h1>Welcome to Tutorialspoint</h1>
+      <div class = "div1">
+         <p>LESS is a CSS pre-processor that enables customizable, 
+            manageable and reusable style sheet for web site.</p>
+      </div>
+         
+      <div class = "div2">
+         <p>LESS is a dynamic style sheet language that extends the capability of CSS. 
+            LESS is also cross browser friendly.</p>
+      </div>
+   </body>
+</html>
+```
+
+style.less
+
+```less
+@color1: #ca428b;
+.div1 {
+   background-color : @color1;
+}
+
+.div2 {
+   background-color : @color1;
+}
+```
+
+compile the *style.less* file to *style.css*
+
+```
+lessc style.less style.css
+```
+
+style.css
+
+```css
+h1 {
+   color: #D0DC11;
+}
+
+.div1 {
+   background-color: #ca428b;
+   color: #D0DC11;
+}
+
+.div2 {
+   background-color: #ca428b;
+   color: #D0DC11;
+}
+```
+
+check the output of index.html in browser.
+
+### Variable interpolation
+
+**Description**
+
+The variable interpolation is the process of evaluating an expression or literal containing one or more variables, yielding output in which the variables are replaced with their corresponding values. 
+
+The variables can also be used in other places like *selector names*, *property names*, *URL*s and *@import* statements.
+
+#### Selectors
+
+**Description**
+
+The selector can reference any variable and it is built during the compile time. 
+
+The variable name must be placed inside the curly braces( **{ }** ) prefixed with the **@** symbol.
+
+**Example**
+
+index.html
+
+```html
+<html>
+   <head>
+      <link rel = "stylesheet" href = "style.css" type = "text/css" />
+      <title>LESS selectors</title>
+   </head>
+	
+   <body>
+      <h2>Welcome to Tutorialspoint</h2>
+         
+      <div class = "div1">
+         <p>LESS is a CSS pre-processor that enables customizable, 
+            manageable and reusable style sheet for web site.</p>
+      </div>
+      
+      <div class = "div2">
+         <p>LESS is a dynamic style sheet language that extends the capability of CSS. 
+            LESS is also cross browser friendly.</p>
+      </div>
+   </body>
+	
+</html>
+```
+
+style.less
+
+```less
+@selector: h2;
+
+@{selector} {
+   background: #2ECCFA;
+}
+```
+
+compile the *style.less* file to *style.css*
+
+```
+lessc style.less style.css
+```
+
+style.css
+
+```css
+h2 {
+   background: #2ECCFA;
+}
+```
+
+check the output of index.html in browser.
+
+
+
+#### URLs
+
+**Description**
+
+The variables can be used to hold the URLs.
+
+**Example**
+
+index.html
+
+```html
+<html>
+   <head>
+      <link rel = "stylesheet" href = "style.css" type = "text/css" />
+      <title>LESS URLs</title>
+   </head>
+
+   <body>
+      <div class = "myclass">
+      </div>
+   </body>
+</html>
+```
+
+style.less
+
+```less
+@images: "http://www.tutorialspoint.com";
+
+.myclass {
+   background : url("@{images}/less/images/less_variables/birds.jpg");
+   width:800px;
+   height:500px;
+}
+```
+
+compile the *style.less* file to *style.css*
+
+```
+lessc style.less style.css
+```
+
+style.css
+
+```css
+.myclass {
+   background: url("http://www.tutorialspoint.com/less/images/less_variables/birds.jpg");
+   width: 800px;
+   height: 500px;
+}
+```
+
+check the output of index.html in browser.
+
+
+
+#### Import Statements
+
+**Description**
+
+An import statement can have a variable which holds a path. 
+
+This is very useful when you are referring a common parent directory.
+
+**Example**
+
+index.html
+
+```html
+<html>
+   <head>
+      <link rel = "stylesheet" href = "style.css" type = "text/css" />
+      <title>LESS Variables in Import Statements</title>
+   </head>
+
+   <body>
+      <div class = "myclass">
+         <h2>Welcome to Tutorialspoint</h2>
+         <p>LESS is a CSS pre-processor that enables customizable, 
+         manageable and reusable style sheet for web site.</p>
+      </div>
+   </body>
+</html>
+```
+
+./file/myfile.less
+
+```
+.myclass {
+  background-color: #C0C0C0;
+}
+```
+
+style.less
+
+```less
+@path: "./file";
+@import "@{path}/myfile.less";
+.myclass {
+  color: #A52A2A;
+}
+```
+
+compile the *style.less* file to *style.css*
+
+```
+lessc style.less style.css
+```
+
+The following code will import the *external.less* file into *style.less* from the https://www.tutorialspoint.com/less/external1.less path −
+
+style.css
+
+```css
+.myclass {
+  background-color: #C0C0C0;
+}
+.myclass {
+  color: #A52A2A;
+}
+```
+
+check the output of index.html in browser.
+
+
+
+#### Properties
+
+**Description**
+
+The variables can be referenced by properties.
+
+**Example**
+
+index.html
+
+```html
+<html>
+   <head>
+      <link rel = "stylesheet" href = "style.css" type = "text/css" />
+      <title>LESS Variables Interpolation Properties</title>
+   </head>
+
+   <body>
+      <div class = "myclass">
+         <h2>Welcome to Tutorialspoint</h2>
+         <p>LESS is a CSS pre-processor that enables customizable, 
+         manageable and reusable style sheet for web site.</p>
+      </div>
+   </body>
+</html>
+```
+
+style.less
+
+```less
+@my-property: color;
+.myclass {
+   background-@{my-property}: #81F7D8;
+}
+```
+
+compile the *style.less* file to *style.css*
+
+```
+lessc style.less style.css
+```
+
+The following code will import the *external.less* file into *style.less* from the https://www.tutorialspoint.com/less/external1.less path −
+
+style.css
+
+```css
+.myclass {
+   background-color: #81F7D8;
+}
+```
+
+check the output of index.html in browser.
+
+
+
+### Variable Names
+
+**Description**
+
+We can define the variables with a variable name consisting of a value.
+
+**Example**
+
+index.html
+
+```html
+<html>
+   <head>
+      <link rel = "stylesheet" href = "style.css" type = "text/css" />
+      <title>LESS Variable Names</title>
+   </head>
+
+   <body>
+      <div class = "myclass">
+         <h2>Welcome to Tutorialspoint</h2>
+         <p>LESS is a CSS pre-processor that enables customizable, 
+         manageable and reusable style sheet for web site.</p>
+      </div>
+   </body>
+</html>
+```
+
+style.less
+
+```less
+.myclass {
+   @col: #ca428b;
+   @color: "col";
+   background-color: @@color;
+}
+```
+
+compile the *style.less* file to *style.css*
+
+```
+lessc style.less style.css
+```
+
+The following code will import the *external.less* file into *style.less* from the https://www.tutorialspoint.com/less/external1.less path −
+
+style.css
+
+```css
+myclass {
+   background-color: #ca428b;
+}
+```
+
+check the output of index.html in browser.
+
+
+
+### Lazy Loading
+
+**Description**
+
+In lazy loading, variables can be used even when they are not declared.
+
+**Example**
+
+index.html
+
+```html
+<html>
+   <head>
+      <link rel = "stylesheet" href = "style.css" type = "text/css" />
+      <title>LESS Lazy Loading</title>
+   </head>
+
+   <body>
+      <h2>Welcome to Tutorialspoint</h2>
+      <p>LESS is a CSS pre-processor.</p>
+   </body>
+</html>
+```
+
+style.less
+
+```less
+p {
+   font-size: @a;
+   color: #ca428b;
+}
+@a: @b;
+@b: 25px;
+```
+
+compile the *style.less* file to *style.css*
+
+```
+lessc style.less style.css
+```
+
+The following code will import the *external.less* file into *style.less* from the https://www.tutorialspoint.com/less/external1.less path −
+
+style.css
+
+```css
+p {
+   font-size: 25px;
+   color: #ca428b;
+}
+```
+
+check the output of index.html in browser.
+
+
+
+### Default Variables
+
+**Description**
+
+Default variable has an ability to set a variable only when it's not already set. 
+
+This feature is not required because variables can be easily overridden by defining them afterwards.
+
+**Example**
+
+index.html
+
+```html
+<html>
+   <head>
+      <link rel = "stylesheet" href = "style.css" type = "text/css" />
+      <title>LESS Default Variables</title>
+   </head>
+
+   <body>
+      <h1>Welcome to Tutorialspoint</h1>
+      <p>LESS is a CSS pre-processor that enables customizable, 
+      manageable and reusable style sheet for web site.</p>
+   </body>
+</html>
+```
+
+style.less
+
+```less
+@import "http://www.tutorialspoint.com/less/lib.less"; // first declaration of @color
+@color: green; // this will override @color defined previously
+p {
+   color : @color;
+}
+```
+
+compile the *style.less* file to *style.css*
+
+```
+lessc style.less style.css
+```
+
+The following code will import the *external.less* file into *style.less* from the https://www.tutorialspoint.com/less/external1.less path −
+
+style.css
+
+```css
+p {
+   color: green;
+}
+```
+
+check the output of index.html in browser.
+
+
+
