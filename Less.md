@@ -1335,3 +1335,145 @@ style.css
 ```
 
 check the output of index.html in browser.
+
+
+
+#### Extend Attached to the Selector
+
+**Description**
+
+**Extend** is connected to a selector which looks similar to a pseudo class with selector as parameter. 
+
+When the ruleset has many selectors then keyword extend can be applied on any of the selectors. 
+
+The following format can be used to define the *extend* in code.
+
+- Extend after the selector [Eg: *pre:hover:extend(div pre)*]
+- Allows space between selector and extend [Eg: *pre:hover :extend(div pre)*]
+- Allows multiple extends [Eg: *pre:hover:extend(div pre):extend(.bucket tr)* or *pre:hover:extend(div pre, .bucket tr)*]
+- Extend must be defined at the end of the selector. *pre:hover:extend(div pre).nth-child(odd)* type is not allowed.
+
+**Example**
+
+index.html
+
+```html
+<!doctype html>
+   <head>
+      <link rel = "stylesheet" href = "style.css" type = "text/css" />
+   </head>
+
+   <body>
+      <div class = "style">
+         <h2>Welcome to TutorialsPoint</h2>
+         
+         <div class = "container">
+            <p>Hello!!!!!</p>
+         </div>
+      
+      </div>
+   </body>
+</html>
+```
+
+style.less
+
+```less
+.style,
+.container{
+   background: #BF70A5;
+}
+
+.img,
+.container{
+   font-size: 45px;
+   font-style: italic;
+}
+```
+
+compile the *style.less* file to *style.css*
+
+```
+lessc style.less style.css
+```
+
+style.css
+
+```css
+.style,
+.container {
+  background: #BF70A5;
+}
+.img,
+.container {
+  font-size: 45px;
+  font-style: italic;
+}
+```
+
+check the output of index.html in browser.
+
+
+
+#### Extend Inside Ruleset
+
+**Description**
+
+- The **&:extend(selector)** syntax can be put inside the body of ruleset. It is shortcut of placing extend into every single selector of the ruleset.
+
+**Example**
+
+index.html
+
+```html
+<!doctype html>
+   <head>
+      <link rel = "stylesheet" href = "style.css" type = "text/css" />
+   </head>
+
+   <body>
+      <div class = "style">
+         <h1>Welcome to TutorialsPoint</h1>
+         <div class = "container">
+            <h2>Hello!!!!!</h2>
+         </div>
+      </div>
+   </body>
+</html>
+```
+
+style.less
+
+```less
+.container,
+.style {
+   &:extend(.img);
+}
+
+.img{
+   font-style: italic;
+   background-color: #7B68EE;
+}
+```
+
+compile the *style.less* file to *style.css*
+
+```
+lessc style.less style.css
+```
+
+style.css
+
+```css
+.style,
+.container {
+  background: #BF70A5;
+}
+.img,
+.container {
+  font-size: 45px;
+  font-style: italic;
+}
+```
+
+check the output of index.html in browser.
