@@ -1203,5 +1203,62 @@ p {
 
 check the output of index.html in browser.
 
+## LESS - Extend
 
+**Description**
+
+Extend is a LESS pseudo class which extends other selector styles in one selector by using **:extend** selector.
+
+**Example**
+
+index.html
+
+```html
+<!doctype html>
+   <head>
+      <link rel = "stylesheet" href = "style.css" type = "text/css" />
+   </head>
+
+   <body>
+      <div class = "style">
+         <h2>Welcome to TutorialsPoint</h2>
+         <p>Hello!!!!!</p>
+      </div>
+   </body>
+</html>
+```
+
+style.less
+
+```less
+h2 {
+   &:extend(.style);
+   font-style: italic;
+}
+
+.style {
+   background: green;
+}
+```
+
+compile the *style.less* file to *style.css*
+
+```
+lessc style.less style.css
+```
+
+style.css
+
+```css
+h2 {
+   font-style: italic;
+}
+
+.style,
+h2 {
+   background: blue;
+}
+```
+
+check the output of index.html in browser.
 
