@@ -1465,15 +1465,70 @@ lessc style.less style.css
 style.css
 
 ```css
-.style,
-.container {
-  background: #BF70A5;
-}
 .img,
-.container {
-  font-size: 45px;
+.container,
+.style {
   font-style: italic;
+  background-color: #7B68EE;
 }
 ```
 
 check the output of index.html in browser.
+
+
+
+#### Extending Nested Selectors
+
+**Description**
+
+Nested selectors are matched using the *extend* selector.
+
+**Example**
+
+index.html
+
+```html
+<!doctype html>
+   <head>
+      <link rel = "stylesheet" href = "style.css" type = "text/css" />
+   </head>
+
+   <body>
+      <div class = "style">
+         <h3>Hello!!!!!</h3>
+      </div>
+      <p class = "img">Welcome to TutorialsPoint</p>
+   </body>
+</html>
+```
+
+style.less
+
+```less
+.style {
+   h3 {
+      color: #BF70A5;
+      font-size: 30px;
+   }
+}
+.img:extend(.style h3){}
+```
+
+compile the *style.less* file to *style.css*
+
+```
+lessc style.less style.css
+```
+
+style.css
+
+```css
+.style h3,
+.img {
+   color: #BF70A5;
+   font-size: 30px;
+}
+```
+
+check the output of index.html in browser.
+
