@@ -1532,3 +1532,66 @@ style.css
 
 check the output of index.html in browser.
 
+
+
+#### Exact Matching with Extend
+
+**Description**
+
+By default, the **extend** look for the exact match between the selectors. 
+
+The extend does not matter when it comes to two nth - expressions having same meaning, but it only looks for the same order form as defined for the selector to match.
+
+**Example**
+
+index.html
+
+```html
+<!doctype html>
+   <head>
+      <link rel = "stylesheet" href = "style.css" type = "text/css" />
+   </head>
+
+   <body>
+      <div class = "style">
+         <h3>Hello!!!!!</h3>
+      </div>
+      <h4 class = "img">Welcome to TutorialsPoint</h4>
+   </body>
+</html>
+```
+
+style.less
+
+```less
+.style h3,
+h3.style {
+   color: #BF70A5;
+   font-style: italic;
+}
+.img:extend(.style h3){}
+```
+
+The *.style h3* should be defined in the same way in extend as defined for selector.
+
+ If you define in extend as *.style* then extend treats this as different.
+
+compile the *style.less* file to *style.css*
+
+```
+lessc style.less style.css
+```
+
+style.css
+
+```css
+.style h3,
+h3.style,
+.img {
+   color: #BF70A5;
+   font-style: italic;
+}
+```
+
+check the output of index.html in browser.
+
