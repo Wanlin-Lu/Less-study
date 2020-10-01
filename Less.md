@@ -1251,14 +1251,87 @@ style.css
 
 ```css
 h2 {
-   font-style: italic;
+  font-style: italic;
 }
-
 .style,
 h2 {
-   background: blue;
+  background: green;
 }
 ```
 
 check the output of index.html in browser.
 
+
+
+### Extend Syntax
+
+**Description**
+
+Extend is placed into ruleset or attached to a selector.
+
+It is similar to a pseudo class containing one or more classes, which are separated by comma. Using the optional keyword **all**, each selector can be followed.
+
+**Example**
+
+index.html
+
+```html
+<!doctype html>
+   <head>
+      <link rel = "stylesheet" href = "style.css" type = "text/css" />
+   </head>
+
+   <body>
+      <div class = "style">
+         <h2>Welcome to TutorialsPoint</h2>
+         
+         <div class = "container">
+            <p>Hello!!!!!</p>
+         </div>
+      
+      </div>
+   </body>
+</html>
+```
+
+style.less
+
+```less
+.style:extend(.container, .img) {
+   background: #BF70A5;
+}
+
+.container {
+   font-style: italic;
+}
+
+.img {
+   font-size: 30px;
+}
+```
+
+compile the *style.less* file to *style.css*
+
+```
+lessc style.less style.css
+```
+
+style.css
+
+```css
+.style {
+   background: #BF70A5;
+}
+
+.container,
+.style {
+   font-style: italic;
+}
+
+.img,
+.style {
+   font-size: 30px;
+}
+```
+
+check the output of index.html in browser.
